@@ -1,6 +1,6 @@
 package Methods;
 
-{
+class Functions{
     // Original function
     static double F(double x1, double x2, double x3)
     {
@@ -120,6 +120,5 @@ package Methods;
                             return ddFx3();
                         }
                     },
-            }
-
+            };
 }
