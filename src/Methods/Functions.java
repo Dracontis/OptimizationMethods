@@ -42,17 +42,17 @@ class Functions{
     }
 
     // Second differential
-    static double ddFx1(double x1, double x2, double x3)
+    static double ddFx1()
     {
         return 2 * 1.1250;
     }
 
-    static double ddFx2(double x1, double x2, double x3)
+    static double ddFx2()
     {
         return 2 * 1.06;
     }
 
-    static double ddFx3(double x1, double x2, double x3)
+    static double ddFx3()
     {
         return 2 * 0.8151;
     }
@@ -101,7 +101,7 @@ class Functions{
                         @Override
                         public double calculateFunction()
                         {
-                            return ddFx1()
+                            return ddFx1();
                         }
                     },
                     new FunctionDDF()

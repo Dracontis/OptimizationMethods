@@ -14,13 +14,13 @@ public class FastestDowning
     /**
      * Calculate minimum with "Метод наискорейшего спуска"
      * @param x First approximation
-     * @return 0
+     * @return Final result of equation, where minimum is
      */
     static public double Calculate(double[] x)
     {
         // Number of unknown variables in equation, depends on functions in Function class
         int eqn = x.length;
-        double y = 0;
+        double y = 0, _y = 0;
 
         // TODO: loop optimization
         for(;;)
@@ -57,7 +57,7 @@ public class FastestDowning
                 x[i] = new_x[i][0] + new_x[i][1] * lambda;
 
             // print variables and result with them
-            double _y = Functions.F(x[0], x[1], x[2]);
+            _y = Functions.F(x[0], x[1], x[2]);
             System.out.println("x0 = " + x[0] + "; x2 = "+ x[1] + "; x3 = " + x[2]);
             System.out.println(_y);
 
@@ -67,7 +67,6 @@ public class FastestDowning
             else
                 y = _y;
         }
-
-        return 0;
+        return _y;
     }
 }
