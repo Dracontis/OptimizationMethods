@@ -1,1 +1,43 @@
-This file was created by IntelliJ IDEA 11.0.2 for binding GitHub repository
+
+        int eqn = x.length;
+        double y = 0, _y = 0;
+        double[] p = new double[eqn];
+        System.out.println(Functions.F(x[0], x[1], x[2]));
+        for(int i = 0; i < eqn; i++)
+            p[i] = -Functions.calculateDFFunctions[i].calculateFunction(x[0], x[1], x[2], 1);
+
+        for(;;)
+        {
+            double[] a = new double[eqn];
+            double[] xk = new double[eqn];
+            // Test
+            /* double value = Functions.F(x[0], x[1], x[2]);
+            double lambda_value = Functions.F(p[0], p[1], p[2]);
+            double test = -value / lambda_value;*/
+            double test = 0.01;
+            // Using CG method
+            for(int i = 0; i < eqn; i++)
+            {
+                a[i] = -((Functions.calculateDFFunctions[i].calculateFunction(x[0], x[1], x[2], 1) * p[i])/
+                    (Math.pow(p[i], 2)));
+                xk[i] = x[i] + test * p[i];
+            }
+            if(Functions.F(xk[0], xk[1], xk[2]) < Math.pow(10, -4))
+                break;
+            // Can't leave now, calculate P for new iteration
+            for(int i = 0; i < eqn; i++)
+            {
+                p[i] =
+                        -Functions.calculateDFFunctions[i].calculateFunction(xk[0], xk[1], xk[2], 1)
+                        + (Math.pow(Functions.calculateDFFunctions[i].calculateFunction(xk[0], xk[1], xk[2], 1), 2)
+                        / Math.pow(Functions.calculateDFFunctions[i].calculateFunction(x[0], x[1], x[2], 1), 2)
+                        )
+                        * p[i];
+            }
+            // Calculate X for new iteration
+            for(int i = 0; i < eqn; i++)
+                x[i] = xk[i];
+        }
+        System.out.println("x0 = " + x[0] + "; x2 = "+ x[1] + "; x3 = " + x[2]);
+        System.out.println(Functions.F(x[0], x[1], x[2]));
+        return 0;

@@ -11,7 +11,12 @@ public class Main
 {
     public static void main(String[] args)
     {
-        FastestDowning.Calculate(new double[]{4, -1, 2});
-        Newton.Calculate(new double[]{4, -1, 2});
+        System.out.println("Вычислено для эпислон равной 10 ^ -10.");
+        System.out.println("Метод наискорейшего спуска: ");
+        FastestDowning.Calculate(new double[]{1,1,1});
+        System.out.println("Метод Ньютона: ");
+        Newton.Calculate(new double[]{1,1,1});
+        System.out.println("Метод сопряженных градиентов: ");
+        CG.Calculate(new double[]{1,1,1});
     }
 }

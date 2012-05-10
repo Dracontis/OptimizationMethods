@@ -1,6 +1,7 @@
 package Methods;
 
-class Functions{
+final class Functions
+{
     // Original function
     static double F(double x1, double x2, double x3)
     {

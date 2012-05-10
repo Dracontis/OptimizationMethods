@@ -1,12 +1,5 @@
 package Methods;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Sony
- * Date: 30.04.12
- * Time: 22:49
- * To change this template use File | Settings | File Templates.
- */
 public class Newton
 {
     /**
@@ -32,15 +25,15 @@ public class Newton
 
             // print variables and result with them
             _y = Functions.F(x[0], x[1], x[2]);
-            System.out.println("x0 = " + x[0] + "; x2 = "+ x[1] + "; x3 = " + x[2]);
-            System.out.println(_y);
 
             // check condition of loop
-            if(Math.abs(y - _y) < Math.pow(10.0, -4.0))
+            if(Math.abs(y - _y) < Math.pow(10.0, -10.0))
                 break;
             else
                 y = _y;
         }
+        System.out.println("x1 = " + x[0] + "; x2 = "+ x[1] + "; x3 = " + x[2]);
+        System.out.println(_y);
         return _y;
     }
 }
